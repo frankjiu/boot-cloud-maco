@@ -1,0 +1,67 @@
+<div class="layui-side-scroll">
+	<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+	<ul class="layui-nav layui-nav-tree" id="leftTree" lay-filter="test">
+	</ul>
+</div>
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+	//根节点主键
+	var rootId = 1;
+	$(function() {
+		$.ajax({
+			type : 'GET',
+			dataType : 'json',
+			url : '${ctx}/login/findAuth?rootId=' + rootId,////////////////////////////////////////////////////////////////////////
+			async : false,
+			success : function(data) {
+				//alert(JSON.stringify(data));
+				//判断session是否存在
+				/* <#if Session["SESSION_MENU_LIST"]?exists>
+				    //存在就显示其属性值
+				    //Session["admin"]为取出该session对象
+				    ${Session["SESSION_MENU_LIST"].name}
+				</#if> */
+				
+				var pArray = data.data;
+				if (pArray instanceof Array) {
+					for (var i = 0; i < pArray.length; i++) {
+						// 遍历父集 插入父节点,同时添加id和name值
+						$("#leftTree").append(" <li class='layui-nav-item'><a href='javascript:;' data-type='first'>" + pArray[i].name + "</a><dl id='" + pArray[i].id + "' class='layui-nav-child' > ");
+						// 遍历子集  插入子节点,同时添加url,name值
+						if (pArray[i].children instanceof Array) {
+							var cArray = pArray[i].children;
+							for (var j = 0; j <  cArray.length; j++) {
+								$("#" + pArray[i].id).append(" <dd><a href='" + cArray[j].url + "' data-type='second'>" + cArray[j].name + "</a></dd> ");
+							}
+						}
+						$("#leftTree").append(" </dl></li> ");
+					}
+				}
+			},
+			error : function() {
+				console.log("no");
+			}
+		})
+	})
+	
+	var $j = jQuery.noConflict();
+	$j(document).ready(function() {
+		//获取当前访问的浏览界面路径
+		var window_url = window.location.pathname;
+		var aPaths = $j("#leftTree").find("a");
+		for (var i = 0; i < aPaths.length; i++) {
+			//若包含则正在访问该路径
+			if ($j(aPaths[i]).attr("href").indexOf(window_url) >= 0) {
+				//为子节点则高亮并收缩父,展开定位子节点
+				if ($j(aPaths[i]).attr("data-type") == "second") {
+					$j(aPaths[i]).parents("li").addClass("layui-nav-itemed");
+					$j(aPaths[i]).parent("dd").addClass("layui-this");
+				//为父节点则高亮并收缩父
+				} else if ($j(aPaths[i]).attr("data-type") == "first") {
+					$j(aPaths[i]).parents("li").addClass("layui-nav-itemed");
+				}
+			}
+		}
+	});
+	
+</script>

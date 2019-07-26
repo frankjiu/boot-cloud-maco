@@ -1,0 +1,257 @@
+@charset "utf-8";
+.main-container{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/**-- 主页面头部header --**/
+.header{
+    height: 60px;
+    background-color: #23262E;
+    position: relative;
+    z-index: 100;
+}
+.logo,.right-navbar li{
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+.logo{
+    float: left;
+    padding: 0 25px;
+    height: 60px;
+    margin-right: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    -webkit-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    font-size: 20px;
+    line-height: 60px;
+    text-align: center;
+    color: #fff;
+}
+.logo:hover{
+    color: #ccc;
+}
+.right-navbar{
+    position: absolute;
+    right: 0;
+    top:0;
+    z-index: 100;
+}
+.right-navbar li{
+    float: left;
+    font-size: 16px;
+    line-height: 60px;
+    padding: 0 15px;
+    height: 60px;
+    position: relative;
+}
+.right-navbar li *{
+    font-size: 14px;
+}
+.right-navbar li img.avatar{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    vertical-align: -6px;
+}
+.right-navbar li a{
+    display: inline-block;
+    margin: 0 5px;
+    color: #ccc;
+}
+.right-navbar li:hover a{
+    color: #fff;
+}
+.right-navbar li:hover .nav-child{
+    display: block;
+}
+.right-navbar li a i{
+    font-size: 18px;
+    margin-left: 6px;
+}
+.right-navbar li dl.nav-child{
+    min-width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #fff;
+    -webkit-box-shadow: 0 2px 4px rgba(0,0,0,.12);
+    box-shadow: 0 2px 4px rgba(0,0,0,.12);
+    border: 1px solid #d2d2d2;
+    border-raidus: 3px;
+    padding: 5px 0;
+    display: none;
+}
+.right-navbar li dl.nav-child dd{
+    line-height: 36px;
+}
+.right-navbar li dl.nav-child a{
+    display: block;
+    margin: 0;
+    padding: 0 20px;
+    color: #1a1a1a;
+    white-space: nowrap;
+}
+.right-navbar li dl.nav-child a:hover{
+    background-color: #1AA094;
+    color: #fff;
+}
+
+/**-- 主页面左侧导航 --**/
+.leftsider{
+    width: 200px;
+    background-color: #393D49;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    bottom: 0;
+}
+.menu-header{
+    background-color: #333;
+    font-size: 16px;
+    line-height: 50px;
+    padding: 0 10px;
+    color: #fff;
+    position: relative;
+    z-index: 1000;
+}
+.menu-header i{
+    display: inline-block;
+    font-size: 24px;
+    margin-right: 5px;
+    vertical-align: -2px;
+}
+.menu-content{
+    width: 100%;
+    height: auto;
+}
+.menu-list{
+    width: 100%;
+}
+.menu-list li *{
+    font-size: 14px;
+    color: #c2c2c2;
+}
+.menu-list li a{
+    display: block;
+    line-height: 44px;
+    padding:0 10px;
+    color: #ccc;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    -webkit-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+.menu-list li a.item{
+    padding-right: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+}
+.menu-list li a i{
+    font-size: 20px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.menu-list li dl{
+    display: none;
+}
+.menu-list li.curMenu dl{
+    display: block;
+}
+.menu-list li dl dd{
+    -webkit-transition: all .2s;
+    transition: all .2s;
+}
+.menu-list li dl dd a:hover,.menu-list li dl dd a.curSelected{
+    background-color: #1AA094;
+    color: #fff;
+}
+.menu-list li dl a{
+    font-size: 14px;
+    line-height: 36px;
+    text-indent: 10px;
+}
+
+/**-- 主页面右侧主体内容 --**/
+.main-content{
+    width: auto;
+    background-color: #fff;
+    border: 10px solid #f2f2f2;
+    position: absolute;
+    left: 200px;
+    top: 60px;
+    right: 0;
+    bottom: 40px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+.admin-header{
+    height: 50px;
+    background-color: #fff;
+    line-height: 50px;
+    padding: 0 10px;
+    display: none;
+}
+.admin-header a{
+    font-size: 14px;
+    margin: 0 2px;
+}
+.admin-header a,.admin-header span{
+    color: #666;
+}
+.admin-header a.mainPage:hover{
+    color: #1AA094;
+}
+
+.fluid-container{
+    padding: 15px;
+    height: 100%;
+}
+.wrapper-container{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.aside{
+    width: 100%;
+    overflow: hidden;
+    background-color: #fff;
+    padding: 6px;
+    margin: 5px;
+}
+.aside img{
+    display: block;
+    width: 100%;
+}
+
+/**-- 页面底部footer --**/
+.footer{
+    position: fixed;
+    left: 200px;
+    right: 0;
+    bottom: 0;
+    height: 44px;
+    background-color: #e7e7e7;
+    text-align: center;
+}
+.footer p{
+    font-size: 14px;
+    line-height: 44px;
+}
+.footer p a{
+    display: inline-block;
+    color: #1AA094;
+    margin: 0 3px;
+}
+
+
+@media screen and (min-width: 992px) {
+
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台系统管理模板</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/jsp/template/cssFile/reset.css" type="text/css">
+    <link rel="stylesheet" href="/jsp/template/cssFile/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="/jsp/template/cssFile/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="/jsp/template/cssFile/main.css" type="text/css">
+    <link rel="stylesheet" href="/jsp/template/cssFile/cust.css" type="text/css">
+</head>
+
+<body>
+    <div class="main-container">
+        <!--顶部-->
+        <div class="header">
+            <a href="#" class="logo">后台系统管理模板</a>
+            <ul class="right-navbar">
+                <li class="nav-item">
+                    <a href="javascript:;" data-reveal-id="lockScreen">锁屏</a>
+                </li>
+                <li class="nav-item">
+                    <img class="avatar" src="images/avatar.png" alt="" width="35" height="35">
+                    <a href="javascript:;">管理员<i class="fa fa-angle-down"></i></a>
+                    <dl class="nav-child">
+                        <dd><a href="javascript:;">个人资料</a></dd>
+                        <dd><a href="javascript:;" data-reveal-id="changePsw" data-animation="fade">修改密码</a></dd>
+                    </dl>
+                </li>
+                <li class="nav-item">
+                    <a class="layout" href="javascript:;">退出</a>
+                </li>
+            </ul>
+        </div>
+        <!--左侧导航-->
+        <div class="leftsider">
+            <h3 class="menu-header"><i class="fa fa-home"></i>菜单列表</h3>
+            <div class="menu-content" data-mcs-theme="minimal-dark">
+                <ul class="vertical-navbar" navbar-filter="accordion"></ul>
+            </div>
+        </div>
+
+        <!--右侧内容-->
+        <div class="main-content">
+            <div class="admin-header">
+            </div>
+            <div class="fluid-container">
+            </div>
+        </div>
+        <!--底部-->
+        <div class="footer">
+            <p>copyright @2018 广州昆仑科技有限公司<a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
+        </div>
+    </div>
+
+    <!--锁屏弹出层-->
+    <div id="lockScreen" class="layer">
+        <div class="layer-body">
+            <div class="layer-content">
+                <div class="user">
+                    <i class="fa fa-user-circle-o"></i>
+                    管理员
+                </div>
+                <div class="decform">
+                    <input type="text" placeholder="请输入密码解锁..." autocomplete="off">
+                    <button type="button" content="decbtn" onclick="unlock()">解锁</button>
+                    <p class="error"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--修改密码弹出层-->
+    <div id="changePsw" class="layer">
+        <div class="layer-title">
+            <a class="close-reveal-modal">&#215;</a>
+            <h3>修改密码</h3>
+        </div>
+        <div class="layer-body">
+            <div class="layer-content">
+                <form class="forms" action="" method="post">
+                    <div class="input-group">
+                        <label>原密码：</label>
+                        <input id="oldPsw" type="password" placeholder="请输入原密码" autocomplete="off">
+                        <p class="error"></p>
+                    </div>
+                    <div class="input-group">
+                        <label>新密码：</label>
+                        <input id="newPsw" type="password" placeholder="请输入新密码" autocomplete="off">
+                        <p class="error"></p>
+                    </div>
+                    <div class="input-group">
+                        <label>确认密码：</label>
+                        <input id="realPsw" type="password" placeholder="请再次输入新密码" autocomplete="off">
+                        <p class="error"></p>
+                    </div>
+                    <button type="button" class="submit">确认</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/jsp/template/js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="/jsp/template/js/jquery.mCustomScrollbar.js"></script>
+    <script type="text/javascript" src="/jsp/template/js/main.js"></script>
+    <script type="text/javascript" src="/jsp/template/module/js/layer.js"></script>
+    <script type="text/javascript" src="/jsp/template/module/js/nav.js"></script>
+
+</body>
+</html>

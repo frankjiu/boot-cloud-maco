@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="myAlert.min.css" />
+		<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="myAlert.min.js" ></script>
+	</head>
+	<body>
+		<button onclick="$.myAlert('这里是提示框内的内容');">点击弹出提示框</button><br/><br/>
+		<button onclick="$.myAlert({title:'Title',message:'message',callback:function(){alert(1)}});">点击弹出提示框(带有callback)</button><br/><br/>
+		<button onclick="$.myConfirm({title:'确认框提示标题',message:'确认框提示内容',callback:function(){alert('callback')}})">点击弹出确认框</button><br/><br/>
+		<button onclick="$.myToast('提示内容')">点击弹出自动消失的提示</button><br/><br/>
+		<button onclick="$.myLoadding()">加载中提示框</button><br/><br/>
+		<button style="z-index: 8000;position: fixed;" onclick="$.removeModa()">关闭提示框</button><br/><br/>
+		
+	</body>
+</html>

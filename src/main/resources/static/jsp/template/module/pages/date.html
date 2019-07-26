@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+
+<body>
+    <div class="multiple-form">
+        <label>开始日期：</label>
+        <input id="date1" type="text" placeholder="yyyy-MM-dd">
+    </div>
+    <div class="multiple-form">
+        <label>结束日期：</label>
+        <input id="date2" type="text" placeholder="yyyy-MM-dd">
+    </div>
+    <script type="text/javascript" src="module/js/laydate.js"></script>
+    <script>
+        // 调用日期方法函数
+        $('.multiple-form input').focus(function () {
+            var dataId = this.id;
+            switch (dataId){
+                case "date1":
+                    laydate({ele: document.getElementById('date1')});
+                    break;
+                case "date2":
+                    laydate({ele: document.getElementById('date2')});
+                    break;
+            }
+        });
+        // 注：以上调用在页面上如果只是一个不用做判断，直接写成：laydate({ele: document.getElementById(xxx)}) 即可！;
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Netty Socket-IO</title>
+<base>
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script src="/js/socket.io.js"></script>
+<style>
+	body {
+		padding: 20px;
+	}
+	#console {
+		height: 450px;
+		overflow: auto;
+	}
+	.username-msg {
+		color: orange;
+	}
+	.connect-msg {
+		color: green;
+	}
+	.disconnect-msg {
+		color: red;
+	}
+</style>
+</head>
+
+<body>
+	<div id="console" class="well"></div>
+</body>
+<script type="text/javascript">
+    var socket;
+    connect();
+
+    function connect() {
+    	// 这些参数由查询或传递获得
+        var loginUserNum = '60';
+        var uniqueCode = 'uniqueCode';
+        var opts = {
+            //query: 'loginUserNum=' + loginUserNum
+            query: 'loginUserNum=' + loginUserNum + '&uniqueCode=' + uniqueCode
+        };
+        socket = io.connect('http://localhost:55555', opts);
+        
+        socket.on('connect', function () {
+            console.log("连接成功!");
+            serverOutput('<span class="connect-msg">连接成功</span>');
+        });
+        
+        socket.on('disconnect', function () {
+            serverOutput('<span class="disconnect-msg">' + '已下线! </span>');
+        });
+
+        // 数据推送接收
+        socket.on('push_event', function (data) {
+        	data = JSON.stringify(data);
+            output('<span class="username-msg">' + data + ' </span>');
+            console.log("数据为:" + data);
+        });
+    }
+    
+    function output(message) {
+    	console.log("已获取数据!");
+        var element = $("<div>" + " " + message + "</div>");
+        $('#console').prepend(element);
+    }
+
+    function serverOutput(message) {
+        var element = $("<div>" + message + "</div>");
+        $('#console').prepend(element);
+    }
+</script>
+</html>

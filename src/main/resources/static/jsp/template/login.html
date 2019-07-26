@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理系统登录平台</title>
+    <link rel="stylesheet" href="/jsp/template/cssFile/reset.css" type="text/css">
+    <link rel="stylesheet" href="/jsp/template/cssFile/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="/jsp/template/cssFile/login.css" type="text/css">
+</head>
+
+<body>
+    <div class="wrapper-container">
+        <div class="bg-blur"></div>
+        <div class="loginFace">
+            <h3 class="loginTitle">管理系统登录平台<span>managament system platform</span></h3>
+            <form class="login" action="" method="post">
+                <div class="input-group">
+                    <i class="fa fa-user"></i>
+                    <input id="user" type="text" name="username" placeholder="请输入用户名" autocomplete="off">
+                </div>
+                <div class="input-group">
+                    <i class="fa fa-key"></i>
+                    <input id="psw" type="password" name="password" placeholder="请输入密码" autocomplete="off">
+                </div>
+                <button type="button" class="submit" onclick="checkForm()">登录</button>
+            </form>
+        </div>
+        <!--提示框-->
+        <p class="errorNotes"></p>
+    </div>
+
+    <script type="text/javascript" src="/jsp/template/js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="/jsp/template/js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<div class="layui-logo">神州科技官网后台管理</div>
+<!-- 头部区域（可配合layui已有的水平导航） -->
+<!-- <ul class="layui-nav layui-layout-left">
+	<li class="layui-nav-item">
+		<a href="">控制台</a>
+	</li>
+	<li class="layui-nav-item">
+		<a href="javascript:;">其它系统</a>
+		<dl class="layui-nav-child">
+			<dd>
+				<a href="">邮件管理</a>
+			</dd>
+			<dd>
+				<a href="">消息管理</a>
+			</dd>
+			<dd>
+				<a href="">授权管理</a>
+			</dd>
+		</dl>
+	</li>
+</ul> -->
+<ul class="layui-nav layui-layout-right">
+	<li class="layui-nav-item"><a href="javascript:;"> <img
+			src="/img/RCzsdCq.jpg" class="layui-nav-img"> ${userLoginName}
+	</a>
+		<dl class="layui-nav-child">
+			<dd>
+				<a href="javascript:;" onclick="find()">基本资料</a>
+			</dd>
+			<dd>
+				<a href="javascript:;" onclick="edit()">密码修改</a>
+			</dd>
+		</dl></li>
+	<li class="layui-nav-item"><a href="${ctx}/login/logOut">退出</a></li>
+</ul>
+
+<script type="text/javascript">
+	function find() {
+		layer.open({
+			type : 2,
+			skin : 'layui-layer-demo', //样式类名
+			anim : 2,
+			title : '基本信息',
+			area : [ '550px', '300px' ],
+			/* btn: ['确定', '取消'], */
+			shadeClose : true, //开启遮罩关闭
+			content : '/user/findInformation',
+		});
+	}
+	function edit() {
+		layer.open({
+			type : 2,
+			skin : 'layui-layer-demo', //样式类名
+			anim : 2,
+			title : '修改密码',
+			area : [ '550px', '300px' ],
+			btn : [ '确定', '取消' ],
+			shadeClose : true, //开启遮罩关闭
+			content : '/user/editpassword',
+			yes : function(index, layero) {
+				var frame = layero.find('iframe')[0];
+				var form2 = $(frame).contents().find("form");
+				var values = serializeForm(form2);
+				//校验用户 信息是否一致
+				if (values.loginPwd == null || values.loginPwd == undefined
+						|| values.loginPwd == "") {
+					layer.alert("请填写密码！");
+					return;
+				}
+				if (values.qupassword == null || values.qupassword == undefined
+						|| values.qupassword == "") {
+					layer.alert("请填写确认密码！");
+					return;
+				}
+				if (values.loginPwd != values.qupassword) {
+					layer.alert("密码和确认密码不一致！");
+					return;
+				}
+				var idata = JSON.stringify(values);
+				$.post("/user/updatePassword", {
+					"datas" : idata
+				}, function(dt) {
+					if (dt.success == true) {
+						layer.alert("更新成功！");
+
+						setTimeout(function() {
+							window.parent.location.reload();
+							parent.layer.close(index);
+						}, 1000);
+
+					} else {
+						layer.alert("更新失败！");
+						return;
+					}
+				}, "json");
+			}
+		});
+	}
+</script>

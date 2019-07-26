@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+
+<body>
+    <div class="fluid-form">
+        <div class="title-header">表单元素</div>
+        <form class="cust-form" action="" method="post">
+            <div class="single-form">
+                <label>姓名</label>
+                <input type="text" placeholder="请输入文本">
+            </div>
+            <div class="single-form">
+                <label>备注</label>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+            </div>
+            <div class="double-form">
+                <label>籍贯</label>
+                <input type="text" placeholder="请输入文本">
+            </div>
+            <div class="double-form">
+                <label>邮箱</label>
+                <input type="text" placeholder="请输入文本">
+            </div>
+            <div class="multiple-form">
+                <label>地址</label>
+                <input type="text" placeholder="请输入文本">
+            </div>
+            <div class="multiple-form">
+                <label>地址</label>
+                <input type="text" placeholder="请输入文本">
+            </div>
+            <div class="multiple-form">
+                <label>地址</label>
+                <input type="text" placeholder="请输入文本">
+            </div>
+            <div class="multiple-form">
+                <label>地址</label>
+                <input type="text" placeholder="请输入文本">
+            </div>
+            <div class="dropdown" id="subject">
+                <label>下拉菜单</label>
+                <input id="ject" url="dropmenu.json" readonly>
+            </div>
+            <div class="dropdown" id="fruitType">
+                <label>水果</label>
+                <input id="fruit" url="dropmenu1.json" readonly>
+            </div>
+            <div class="dropdown">
+                <label>地址</label>
+                <input id="sex" url="sex.json" readonly>
+            </div>
+            <div class="multiple-form">
+                <label>地址</label>
+                <input type="text" placeholder="请输入文本">
+            </div>
+            <div class="multiple-form">
+                <label>地址</label>
+                <input type="text" placeholder="请输入文本">
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript" src="module/js/dropdown.js"></script>
+    <script>
+
+        /*// ajax请求下拉菜单数据
+        (function getData() {
+            $.ajax({
+                type: 'get',
+                url: 'dropmenu.json',
+                dataType: 'json',
+                success: function (data) {
+                    var doc = data.menu;
+                    menuRender(doc);
+                },error: function (data) {
+                    console.log('页面请求失败，错误信息为： ' + data);
+                }
+            })
+        })();
+
+        // 下拉菜单页面结构渲染
+        function menuRender(data) {
+            var ostr = "";
+            for(var i in data){
+                ostr += '<li drop-value='+data[i].id+'>'+data[i].content+'</li>';
+            }
+            $('#subject ul').html(ostr);
+            $('#subject ul li').eq(0).addClass('select-tips');
+        }*/
+
+    </script>
+</body>
+</html>

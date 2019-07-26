@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+
+<body>
+    <div class="wrap-container">
+        <a href="javascript:;" data-reveal-id="scrollWindow" class="btn-primary">下滑弹出层</a>
+        <a href="javascript:;" data-reveal-id="fadeWindow" class="btn-blue" data-animation="fade">淡入弹出层</a>
+        <a href="javascript:;" data-reveal-id="defaultWindow" class="btn-default" data-animation="none">默认弹出层</a>
+    </div>
+
+    <!--下滑弹出层-->
+    <div id="scrollWindow" class="layer">
+        <div class="layer-title">
+            <a class="close-reveal-modal">&#215;</a>
+            <h3>下滑弹出层</h3>
+        </div>
+        <div class="layer-body">
+            <div class="layer-content" style="width: 500px; height: 800px;">
+                弹出层内容区域
+            </div>
+        </div>
+    </div>
+
+    <!--淡入弹出层-->
+    <div id="fadeWindow" class="layer">
+        <div class="layer-title">
+            <a class="close-reveal-modal">&#215;</a>
+            <h3>淡入弹出层</h3>
+        </div>
+        <div class="layer-body">
+            <div class="layer-content" style="width: 400px; height: 300px;">
+                弹出层内容区域
+            </div>
+        </div>
+    </div>
+
+    <!--默认弹出层-->
+    <div id="defaultWindow" class="layer">
+        <div class="layer-title">
+            <a class="close-reveal-modal">&#215;</a>
+            <h3>默认弹出层</h3>
+        </div>
+        <div class="layer-body">
+            <div class="layer-content" style="width: 300px; height: 150px;">
+                弹出层内容区域
+            </div>
+        </div>
+    </div>
+    <script>
+
+        // 弹出层按钮点击监听事件处理
+        $('a[data-reveal-id]').on('click',function(e) {
+            e.preventDefault();
+            var modalLocation = $(this).attr('data-reveal-id');
+            $('#'+modalLocation).reveal($(this).data());
+        });
+    </script>
+</body>
+</html>

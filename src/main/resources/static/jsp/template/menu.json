@@ -1,0 +1,26 @@
+
+[
+    {
+        "title":"组件",
+        "submenu":[
+          {"name":"表单","page":"form"},
+          {"name":"选项卡","page":"tab"},
+          {"name":"按钮","page":"button"},
+          {"name":"进度条","page":"progressbar"},
+          {"name":"导航","page":"nav"},
+          {"name":"弹出层","page":"layer"},
+          {"name":"日期时间","page":"date"},
+          {"name":"树形菜单","page":"tree"},
+          {"name":"数据表格","page":"dataTree"},
+          {"name":"轮播图","page":"carousel"}
+        ]
+    },
+    {
+      "title":"主菜单一",
+      "submenu":[
+        {"name":"阿里云","page":"page5"},
+        {"name":"今日头条","page":"page6"}
+      ]
+    }
+]
+
