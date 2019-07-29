@@ -1,7 +1,1 @@
-.classpath
-.gitignore
-.project
-*.class
-*.log
-/target/*
 /target/
