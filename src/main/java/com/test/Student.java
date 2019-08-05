@@ -1,6 +1,11 @@
 package com.test;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import lombok.Data;
 
@@ -12,10 +17,25 @@ import lombok.Data;
 @Data
 @Entity
 public class Student {
+	
+	@Id  
+	@GenericGenerator(name = "idGenerator", strategy = "uuid")
+	@GeneratedValue(generator = "idGenerator")
+	private String id;
+	
+	@Transient
 	private String name;// 姓名
+	
+	@Transient
 	private String sex;// 性别
+	
+	@Transient
 	private String age;// 年龄
+	
+	@Transient
 	private float weight;// 体重
+	
+	@Transient
 	private String addr;// 地址
 
 	// 重写hashcode方法
